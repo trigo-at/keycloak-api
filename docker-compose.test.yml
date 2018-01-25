@@ -17,7 +17,6 @@ services:
       - 3s-sso_test
     depends_on:
       - keycloak
-      - redis
   
   keycloak:
     image: jboss/keycloak:2.5.5.Final
@@ -41,13 +40,6 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=admin
       - POSTGRES_DB=keycloak
-    networks:
-      - 3s-sso_test
-
-  redis:
-    image: redis:4-alpine
-    ports:
-      - 6379:6379
     networks:
       - 3s-sso_test
 
