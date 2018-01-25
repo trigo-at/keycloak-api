@@ -1,0 +1,61 @@
+{
+  "name": "@trigo/keycloak-api",
+  "version": "0.0.0",
+  "description": "Node.js Keycloak Admin API Wrapper",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test nyc mocha --timeout 60000 specs",
+    "start": "node ./",
+    "start:dev": "nodemon  ./ | bunyan",
+    "lint": "eslint '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trigo-at/keycloak-api.git"
+  },
+  "author": "Christian Hubinger <christian@trigo.at>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trigo-at/keycloak-api/issues"
+  },
+  "homepage": "https://github.com/trigo-at/keycloak-api#readme",
+  "nyc": {
+    "extension": [
+      ".js"
+    ],
+    "exclude": [
+      "**/*.specs.js",
+      "specs",
+      "coverage",
+      ".nyc_output",
+      "__testservices"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "devDependencies": {
+    "bunyan": "^1.8.12",
+    "chai": "^4.1.2",
+    "eslint": "^4.15.0",
+    "eslint-config-trigo": "^4.3.1",
+    "forever": "^0.15.3",
+    "jsonwebtoken": "^8.1.0",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.11",
+    "nyc": "^11.4.1",
+    "supertest": "^3.0.0",
+    "uuid": "^3.2.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "boom": "^7.1.1",
+    "form-data": "^2.3.1",
+    "node-fetch": "^1.7.3",
+    "ramda": "^0.25.0"
+  }
+}

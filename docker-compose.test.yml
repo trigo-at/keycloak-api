@@ -1,0 +1,56 @@
+version: '2'
+services:
+  keycloak-api:
+    build:
+      context: .
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+    image: trigo/keycloak-api:latest
+    command: 'yarn run test'
+    environment:
+      - NODE_ENV=test
+      - NPM_TOKEN
+      - I_WANT_TEST_LOGGING=1
+      - CI_TEST=1
+      - KEYCLOAK_URL=http://keycloak:8080/auth
+    networks:
+      - 3s-sso_test
+    depends_on:
+      - keycloak
+      - redis
+  
+  keycloak:
+    image: jboss/keycloak:2.5.5.Final
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=password
+      - PROXY_ADDRESS_FORWARDING=true
+      - POSTGRES_PORT_5432_TCP_ADDR=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=keycloak
+      - OPENSHIFT_KUBE_PING_NAMESPACE=sso
+    networks:
+      - 3s-sso_test
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:10-alpine
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=keycloak
+    networks:
+      - 3s-sso_test
+
+  redis:
+    image: redis:4-alpine
+    ports:
+      - 6379:6379
+    networks:
+      - 3s-sso_test
+
+networks:
+  3s-sso_test:
+    driver: bridge
