@@ -1,0 +1,29 @@
+version: '2'
+services:
+  keycloak:
+    image: jboss/keycloak:2.5.5.Final
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=password
+      - PROXY_ADDRESS_FORWARDING=true
+      - POSTGRES_PORT_5432_TCP_ADDR=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=keycloak
+      - OPENSHIFT_KUBE_PING_NAMESPACE=sso
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:10-alpine
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=keycloak
+
+  redis:
+    image: redis:4-alpine
+    ports:
+      - 6379:6379

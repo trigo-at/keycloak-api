@@ -23,6 +23,14 @@ build: .
 lint:
 	yarn lint
 
+dev-inf-up:
+	COMPOSE_PROJECT_NAME=$(PACKAGE) \
+		docker-compose -f docker-compose.dev-inf.yml up -d
+
+dev-inf-down:
+	COMPOSE_PROJECT_NAME=$(PACKAGE) \
+		docker-compose -f docker-compose.dev-inf.yml down
+
 ci-lint: build
 	@docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) yarn lint; \
 		test_exit=$$?; \
