@@ -16,7 +16,7 @@ const api = new KeycloakApi(config);
 await api.waitForKeycloak(); // required 
 ```
 
-## Features
+# Features
 
 Ever function requires a function param called `tokenProvider`. It should return a access token.
 
@@ -37,8 +37,65 @@ const tokenProvider = async () => {
 
 _We will refer to this example in the following function calls._
 
+## Realms
+
 ### createRealm
 
 ```javascript
-api.createRealm({ realm: 'sparta', tokenProvider })
+const {statusCode, data} = await api.createRealm({ realm: 'sparta', tokenProvider })
 ```
+
+## Users
+
+### getUsers
+
+Get list of users. Optional query object as key value.
+
+```javascript
+
+const query = {
+	username: 'leonidas',
+};
+
+const {statusCode, data} = await api.getUsers({ realm: 'sparta', query, tokenProvider });
+```
+
+`statusCode` contains the HTTP status code.
+`data` array of Keycloak Users.
+
+### createUser
+
+Creates a new user.
+
+```javascript
+
+const user = {
+	username: 'leonidas',
+};
+
+const {statusCode, data} = await api.createUser({ realm: 'sparta', user, tokenProvider });
+```
+
+`statusCode` contains the HTTP status code.
+`data` the keycloak user object.
+
+## Groups
+
+### createGroup
+
+Creates a new user group.
+
+
+```javascript
+
+const group = {
+	name: 'Spartiates',
+};
+
+const parentGroupId = 300; // Optional
+
+const {statusCode, data} = await api.createGroup({ realm: 'sparta', group, parentGroupId, tokenProvider });
+```
+
+`statusCode` contains the HTTP status code.
+`data` the keycloak group object.
