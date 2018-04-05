@@ -81,15 +81,29 @@ const {statusCode, data} = await api.createUser({ realm: 'sparta', user, tokenPr
 
 ## Groups
 
+### getGroups
+
+Returns all keycloak Groups
+
+```javascript
+
+const {statusCode, data} = await api.getGroups({ realm: 'sparta', tokenProvider });
+```
+
+`statusCode` contains the HTTP status code.
+`data` array of keycloak groups.
+
 ### createGroup
 
 Creates a new user group.
-
 
 ```javascript
 
 const group = {
 	name: 'Spartiates',
+	attributes: {
+		'size': ['300'],
+	},
 };
 
 const parentGroupId = 300; // Optional
@@ -99,3 +113,14 @@ const {statusCode, data} = await api.createGroup({ realm: 'sparta', group, paren
 
 `statusCode` contains the HTTP status code.
 `data` the keycloak group object.
+
+### deleteGroup
+
+Deletes a user group by groupId
+
+```javascript
+
+const {statusCode} = await api.deleteGroup({ realm: 'sparta', groupId: 300, tokenProvider });
+```
+
+`statusCode` contains the HTTP status code.
