@@ -8,7 +8,7 @@
 		"mocha": true
    	},
 	"parserOptions": {
-    	"sourceType": "module"
+    	"sourceType": "script"
     },
 	"rules": {
 		"strict": [2, "global"],
