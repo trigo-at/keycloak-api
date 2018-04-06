@@ -1,6 +1,6 @@
 'use strict';
 
-const { expect } = require('chai');
+const {expect} = require('chai');
 const KeycloakApi = require('./');
 const cfg = require('./specs/test-config');
 
