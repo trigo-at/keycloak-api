@@ -124,3 +124,14 @@ const {statusCode} = await api.deleteGroup({ realm: 'sparta', groupId: 300, toke
 ```
 
 `statusCode` contains the HTTP status code.
+
+### makeGroupChildOfGroup
+
+If group exists it sets the parent otherwise it creates the group as a child
+
+```javascript
+
+const {statusCode} = await api.makeGroupChildOfGroup({ realm: 'sparta', parentGroupId: '42', group: { id: '43', name: 'child group' }, tokenProvider });
+```
+
+`statusCode` contains the HTTP status code.
