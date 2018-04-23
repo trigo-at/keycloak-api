@@ -47,14 +47,14 @@
         "chai": "^4.1.2",
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",
-        "eslint-config-trigo": "^4.3.3",
+        "eslint-config-trigo": "^5.0.0",
         "eslint-plugin-prettier": "^2.6.0",
         "husky": "^0.14.3",
-        "jsonwebtoken": "^8.2.0",
+        "jsonwebtoken": "^8.2.1",
         "lint-staged": "^7.0.4",
         "mocha": "^4.1.0",
-        "nyc": "^11.6.0",
-        "prettier": "^1.11.1",
+        "nyc": "^11.7.1",
+        "prettier": "^1.12.1",
         "uuid": "^3.2.0"
     },
     "dependencies": {
