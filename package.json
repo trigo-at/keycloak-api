@@ -1,6 +1,6 @@
 {
     "name": "@trigo/keycloak-api",
-    "version": "0.19.1",
+    "version": "0.19.2",
     "description": "Node.js Keycloak Admin API Wrapper",
     "main": "index.js",
     "directories": {
