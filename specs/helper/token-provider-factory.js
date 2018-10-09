@@ -1,8 +1,8 @@
 'use strict';
 
+const Boom = require('boom');
 const cfg = require('../test-config');
 const KeycloakApi = require('../../lib/keycloak-api');
-const Boom = require('boom');
 
 module.exports = () => async () => {
 	const api = new KeycloakApi(cfg);
