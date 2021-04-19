@@ -1,1 +1,1 @@
-BUILD_TYPE=node-library
+BUILD_TYPE=npm-package
