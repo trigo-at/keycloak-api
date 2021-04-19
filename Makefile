@@ -9,13 +9,13 @@ info:
 	@echo "Published:             $$(npm show @trigo/$(PACKAGE) version)"
 
 install:
-	yarn install
+	npm install
 
 clean:
 	rm -rf node_modules/
 
 test:
-	yarn test
+	npm run test
 
 build: .
 	docker-compose -f docker-compose.test.yml build
