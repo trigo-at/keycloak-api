@@ -7,7 +7,7 @@
         "lib": "lib"
     },
     "scripts": {
-        "test:integration": "NODE_ENV=test nyc mocha --timeout 60000 specs",
+        "test": "NODE_ENV=test nyc mocha --timeout 60000 specs",
         "lint": "eslint '**/*.js'",
         "prettify": "prettier --write '**/*.{js,jsx}'"
     },
