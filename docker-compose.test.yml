@@ -1,11 +1,11 @@
 version: '2'
 services:
-  keycloak-api:
+  package-test:
     build:
       context: .
       args:
         - NPM_TOKEN=${NPM_TOKEN}
-    image: trigo/keycloak-api:latest
+    image: ${BUILD_IMAGE_NAME}
     command: 'yarn run test'
     environment:
       - NODE_ENV=test

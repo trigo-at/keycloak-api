@@ -1,1 +1,2 @@
 BUILD_TYPE=npm-package
+TEST_CMD="BUILD_IMAGE_NAME=${BUILD_IMAGE_NAME} docker-compose -f docker-compose.test.yml run --rm package-test; test_exit=$$?; docker-compose -f docker-compose.test.yml down; exit $$test_exit;"
