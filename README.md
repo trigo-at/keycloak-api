@@ -42,7 +42,7 @@ _We will refer to this example in the following function calls._
 ### createRealm
 
 ```javascript
-const {statusCode, data} = await api.createRealm({ realm: 'sparta', tokenProvider })
+const {statusCode, data, header} = await api.createRealm({ realm: 'sparta', tokenProvider })
 ```
 
 ## Users
@@ -57,11 +57,12 @@ const query = {
 	username: 'leonidas',
 };
 
-const {statusCode, data} = await api.getUsers({ realm: 'sparta', query, tokenProvider });
+const {statusCode, data, header} = await api.getUsers({ realm: 'sparta', query, tokenProvider });
 ```
 
 `statusCode` contains the HTTP status code.
 `data` array of Keycloak Users.
+`header` [node-fetch](https://github.com/node-fetch/node-fetch/blob/master/src/headers.js#L200) style raw headers
 
 ### createUser
 
@@ -73,11 +74,12 @@ const user = {
 	username: 'leonidas',
 };
 
-const {statusCode, data} = await api.createUser({ realm: 'sparta', user, tokenProvider });
+const {statusCode, data, header} = await api.createUser({ realm: 'sparta', user, tokenProvider });
 ```
 
 `statusCode` contains the HTTP status code.
 `data` the keycloak user object.
+`header` [node-fetch](https://github.com/node-fetch/node-fetch/blob/master/src/headers.js#L200) style raw headers
 
 ## Groups
 
@@ -87,11 +89,12 @@ Returns all keycloak Groups
 
 ```javascript
 
-const {statusCode, data} = await api.getGroups({ realm: 'sparta', tokenProvider });
+const {statusCode, data, header} = await api.getGroups({ realm: 'sparta', tokenProvider });
 ```
 
 `statusCode` contains the HTTP status code.
 `data` array of keycloak groups.
+`header` [node-fetch](https://github.com/node-fetch/node-fetch/blob/master/src/headers.js#L200) style raw headers
 
 ### createGroup
 
@@ -108,11 +111,12 @@ const group = {
 
 const parentGroupId = 300; // Optional
 
-const {statusCode, data} = await api.createGroup({ realm: 'sparta', group, parentGroupId, tokenProvider });
+const {statusCode, data, header} = await api.createGroup({ realm: 'sparta', group, parentGroupId, tokenProvider });
 ```
 
 `statusCode` contains the HTTP status code.
 `data` the keycloak group object.
+`header` [node-fetch](https://github.com/node-fetch/node-fetch/blob/master/src/headers.js#L200) style raw headers
 
 ### deleteGroup
 
@@ -124,6 +128,7 @@ const {statusCode} = await api.deleteGroup({ realm: 'sparta', groupId: 300, toke
 ```
 
 `statusCode` contains the HTTP status code.
+`header` [node-fetch](https://github.com/node-fetch/node-fetch/blob/master/src/headers.js#L200) style raw headers
 
 ### makeGroupChildOfGroup
 
@@ -135,3 +140,4 @@ const {statusCode} = await api.makeGroupChildOfGroup({ realm: 'sparta', parentGr
 ```
 
 `statusCode` contains the HTTP status code.
+`header` [node-fetch](https://github.com/node-fetch/node-fetch/blob/master/src/headers.js#L200) style raw headers
