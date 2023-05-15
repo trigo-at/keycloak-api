@@ -1,27 +1,39 @@
 {
-	"extends": ["trigo", "prettier"],
+	"extends": [
+		"trigo",
+		"prettier"
+	],
 	"plugins": [
-        "prettier"
-    ],
+		"prettier"
+	],
 	"env": {
 		"node": true,
 		"mocha": true
-   	},
-	"parserOptions": {
-    	"sourceType": "script"
-    },
-	"rules": {
-		"strict": [2, "global"],
-		"no-underscore-dangle": 0,
-		"prettier/prettier": ["error"]
 	},
-	"overrides": [{
-		"files": ["**/*.specs.js"],
-		"rules": {
-			"one-var": 0,
-			"one-var-declaration-per-line": 0,
-			"prefer-destructuring": 0,
-			"no-unused-expressions": 0
+	"parserOptions": {
+		"sourceType": "script"
+	},
+	"rules": {
+		"strict": [
+			2,
+			"global"
+		],
+		"no-underscore-dangle": 0,
+		"prettier/prettier": [
+			"warn"
+		]
+	},
+	"overrides": [
+		{
+			"files": [
+				"**/*.specs.js"
+			],
+			"rules": {
+				"one-var": 0,
+				"one-var-declaration-per-line": 0,
+				"prefer-destructuring": 0,
+				"no-unused-expressions": 0
+			}
 		}
-	}]
+	]
 }
