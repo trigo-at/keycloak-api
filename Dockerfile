@@ -1,1 +1,1 @@
-FROM trigo/node-base:v15.5.1
+FROM ghcr.io/trigo-at/node-base:20.0.0

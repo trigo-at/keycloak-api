@@ -1,7 +1,7 @@
 version: '2'
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:12.0.4
+    image: quay.io/keycloak/keycloak:18.0.2-legacy
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=password
@@ -14,14 +14,14 @@ services:
       # - DB_VENDOR=postgres
     ports:
       - 8080:8080
-    # depends_on:
+      # depends_on:
       # - postgres
 
-  # postgres:
-    # image: postgres:10-alpine
-    # environment:
+      # postgres:
+      # image: postgres:10-alpine
+      # environment:
       # - POSTGRES_PASSWORD=password
       # - POSTGRES_USER=admin
       # - POSTGRES_DB=keycloak
-    # ports:
+      # ports:
       # - 5432:5432

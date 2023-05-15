@@ -1,6 +1,6 @@
 'use strict';
 
-const Boom = require('boom');
+const Boom = require('@hapi/boom');
 const cfg = require('../test-config');
 const KeycloakApi = require('../../lib/keycloak-api');
 
