@@ -1,1 +1,1 @@
-FROM ghcr.io/trigo-at/node-base:18.6.0
+FROM ghcr.io/trigo-at/node-base:20.0.0
