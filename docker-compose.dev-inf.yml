@@ -5,6 +5,7 @@ services:
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=password
+      - KEYCLOAK_LOGLEVEL=DEBUG
       # - PROXY_ADDRESS_FORWARDING=true
       # - POSTGRES_PORT_5432_TCP_ADDR=postgres
       # - POSTGRES_PASSWORD=password
